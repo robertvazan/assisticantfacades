@@ -50,8 +50,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FacadeInstance.cs" />
-    <Compile Include="FacadeProperty.cs" />
+    <Compile Include="FacadeMember.cs" />
+    <Compile Include="FacadeModel.cs" />
     <Compile Include="FacadeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
