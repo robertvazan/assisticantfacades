@@ -1,4 +1,5 @@
 ﻿using Assisticant.Facades;
+using Assisticant.Fields;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace SampleControlLibrary
 {
     class FullNameModel
     {
-        public FacadeProperty<string> First;
-        public FacadeProperty<string> Last;
-        public FacadeProperty<bool> IsReversed;
+        public readonly Observable<string> First = new Observable<string>();
+        public readonly Observable<string> Last = new Observable<string>();
+        public readonly Observable<bool> IsReversed = new Observable<bool>();
 
         public string Full
         {

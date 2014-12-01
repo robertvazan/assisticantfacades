@@ -11,7 +11,7 @@ namespace SampleControlLibrary
 {
     public class FullName : Control
     {
-        readonly FacadeInstance FacadeInstance;
+        readonly FullNameModel Model = new FullNameModel();
 
         public static readonly DependencyProperty FirstProperty = DependencyProperty.Register("First", typeof(string), typeof(FullName));
         public string First { get { return (string)GetValue(FirstProperty); } set { SetValue(FirstProperty, value); } }
@@ -29,20 +29,19 @@ namespace SampleControlLibrary
 
         public FullName()
         {
-            FacadeInstance = new FacadeInstance(this, typeof(FullNameModel));
+            FacadeModel.UpdateAll(Model, this);
         }
 
         public override void OnApplyTemplate()
         {
-            FacadeInstance.ApplyModel(GetTemplateChild("Root"));
+            FacadeModel.Wrap(Model, GetTemplateChild("Root"));
             base.OnApplyTemplate();
         }
 
         protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs args)
         {
             base.OnPropertyChanged(args);
-            if (FacadeInstance != null)
-                FacadeInstance.UpdateModel(args);
+            FacadeModel.Update(Model, this, args);
         }
     }
 }
