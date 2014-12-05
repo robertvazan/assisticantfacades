@@ -42,22 +42,25 @@ namespace Assisticant.Facades
 
         public void Update(object model, object value)
         {
-            if (ValueProperty != null)
+            ForView.Unwrap<object>(value, unwrapped =>
             {
-                object member = null;
-                if (ModelProperty != null)
-                    member = ModelProperty.GetValue(model);
-                if (ModelField != null)
-                    member = ModelField.GetValue(model);
-                ValueProperty.SetValue(member, value);
-            }
-            else
-            {
-                if (ModelProperty != null)
-                    ModelProperty.SetValue(model, value);
-                if (ModelField != null)
-                    ModelField.SetValue(model, value);
-            }
+                if (ValueProperty != null)
+                {
+                    object member = null;
+                    if (ModelProperty != null)
+                        member = ModelProperty.GetValue(model);
+                    if (ModelField != null)
+                        member = ModelField.GetValue(model);
+                    ValueProperty.SetValue(member, unwrapped);
+                }
+                else
+                {
+                    if (ModelProperty != null)
+                        ModelProperty.SetValue(model, unwrapped);
+                    if (ModelField != null)
+                        ModelField.SetValue(model, unwrapped);
+                }
+            });
         }
 
         public void UpdateFrom(object model, DependencyObject view) { Update(model, view.GetValue(ViewProperty)); }
