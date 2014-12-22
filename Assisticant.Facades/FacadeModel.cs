@@ -26,7 +26,7 @@ namespace Assisticant.Facades
 
         public static void Update(object model, DependencyObject view, DependencyPropertyChangedEventArgs change)
         {
-            FacadeMember member;
+            FacadeMapping member;
             if (FacadeType.Create(view.GetType(), model.GetType()).ByViewProperty.TryGetValue(change.Property, out member))
                 member.Update(model, change.NewValue);
         }

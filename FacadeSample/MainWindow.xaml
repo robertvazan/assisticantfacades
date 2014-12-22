@@ -22,6 +22,5 @@
         <CheckBox IsChecked="{Binding IsReversed}" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" />
         <Label Content="Full name:" Grid.Row="3" />
         <sample:FullName First="{Binding FirstName}" Last="{Binding LastName}" IsReversed="{Binding IsReversed}" Grid.Column="1" Grid.Row="3" />
-        <sample:FullName First="Robert" Last="Važan" IsReversed="False" />
     </Grid>
 </Window>

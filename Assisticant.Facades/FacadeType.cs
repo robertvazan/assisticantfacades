@@ -12,8 +12,8 @@ namespace Assisticant.Facades
     {
         public readonly Type ViewType;
         public readonly Type ModelType;
-        public readonly FacadeMember[] Members;
-        public readonly Dictionary<DependencyProperty, FacadeMember> ByViewProperty;
+        public readonly FacadeMapping[] Members;
+        public readonly Dictionary<DependencyProperty, FacadeMapping> ByViewProperty;
         static readonly Dictionary<Tuple<Type, Type>, FacadeType> All = new Dictionary<Tuple<Type, Type>, FacadeType>();
 
         public FacadeType(Type viewType, Type modelType)
@@ -23,18 +23,18 @@ namespace Assisticant.Facades
             var depprops = (from field in ViewType.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
                             where field.FieldType == typeof(DependencyProperty) && field.Name.EndsWith("Property")
                             select (DependencyProperty)field.GetValue(null)).ToList();
-            var members = new List<FacadeMember>();
+            var members = new List<FacadeMapping>();
             foreach (var dep in depprops)
             {
                 FacadeMember member = null;
                 var property = ModelType.GetProperty(dep.Name);
                 if (property != null)
-                    member = new FacadeMember(dep, property);
+                    member = new FacadeProperty(property);
                 var field = ModelType.GetField(dep.Name);
                 if (field != null)
-                    member = new FacadeMember(dep, field);
+                    member = new FacadeField(field);
                 if (member != null)
-                    members.Add(member);
+                    members.Add(new FacadeMapping(dep, FacadeObservable.Unwrap(member)));
             }
             Members = members.ToArray();
             ByViewProperty = members.ToDictionary(m => m.ViewProperty);
