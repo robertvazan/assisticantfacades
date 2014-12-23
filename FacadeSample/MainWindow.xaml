@@ -13,6 +13,12 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Label Content="First name:" />
         <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" />
@@ -22,5 +28,22 @@
         <CheckBox IsChecked="{Binding IsReversed}" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" />
         <Label Content="Full name:" Grid.Row="3" />
         <sample:FullName First="{Binding FirstName}" Last="{Binding LastName}" IsReversed="{Binding IsReversed}" Grid.Column="1" Grid.Row="3" />
+        <Label Content="Input 1:" Grid.Row="5" />
+        <TextBox Text="{Binding Input1, UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" Grid.Column="1" />
+        <Label Content="Input 2:" Grid.Row="6" />
+        <TextBox Text="{Binding Input2, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" Grid.Column="1" />
+        <Label Content="Input 3:" Grid.Row="7" />
+        <TextBox Text="{Binding Input3, UpdateSourceTrigger=PropertyChanged}" Grid.Row="7" Grid.Column="1" />
+        <Label Content="Input 4:" Grid.Row="8" />
+        <TextBox Text="{Binding Input4, UpdateSourceTrigger=PropertyChanged}" Grid.Row="8" Grid.Column="1" />
+        <Label Content="Min:" Grid.Row="9" />
+        <sample:SelectMin Grid.Row="9" Grid.Column="1">
+            <sample:SelectMin.Inputs>
+                <sample:MinInput Input="{Binding Input1}" />
+                <sample:MinInput Input="{Binding Input2}" />
+                <sample:MinInput Input="{Binding Input3}" />
+                <sample:MinInput Input="{Binding Input4}" />
+            </sample:SelectMin.Inputs>
+        </sample:SelectMin>
     </Grid>
 </Window>

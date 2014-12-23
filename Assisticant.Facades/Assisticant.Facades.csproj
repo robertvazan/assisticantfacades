@@ -58,12 +58,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FacadeCollection.cs" />
     <Compile Include="FacadeField.cs" />
+    <Compile Include="FacadeListAdaptor.cs" />
     <Compile Include="FacadeMapping.cs" />
     <Compile Include="FacadeMember.cs" />
     <Compile Include="FacadeModel.cs" />
     <Compile Include="FacadeObservable.cs" />
     <Compile Include="FacadeProperty.cs" />
+    <Compile Include="FacadeScalar.cs" />
     <Compile Include="FacadeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

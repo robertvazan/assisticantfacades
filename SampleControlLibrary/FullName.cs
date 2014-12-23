@@ -40,8 +40,8 @@ namespace SampleControlLibrary
 
         protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs args)
         {
-            base.OnPropertyChanged(args);
             FacadeModel.Update(Model, this, args);
+            base.OnPropertyChanged(args);
         }
     }
 }

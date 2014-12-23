@@ -1,12 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sample="clr-namespace:SampleControlLibrary">
-    <Style TargetType="sample:FullName">
+    <Style TargetType="sample:SelectMin">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="sample:FullName">
+                <ControlTemplate TargetType="sample:SelectMin">
                     <Grid x:Name="Root">
-                        <Label Content="{Binding Full}" />
+                        <Label Content="{Binding Min}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

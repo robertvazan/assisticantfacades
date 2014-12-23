@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -34,7 +35,10 @@ namespace Assisticant.Facades
                 if (field != null)
                     member = new FacadeField(field);
                 if (member != null)
-                    members.Add(new FacadeMapping(dep, FacadeObservable.Unwrap(member)));
+                {
+                    member = FacadeObservable.Unwrap(member);
+                    members.Add(FacadeCollection.TryMap(dep, member) ?? new FacadeScalar(dep, member));
+                }
             }
             Members = members.ToArray();
             ByViewProperty = members.ToDictionary(m => m.ViewProperty);
