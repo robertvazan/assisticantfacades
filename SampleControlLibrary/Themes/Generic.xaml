@@ -4,5 +4,6 @@
     xmlns:local="clr-namespace:SampleControlLibrary">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/SampleControlLibrary;component/FullName.xaml" />
+        <ResourceDictionary Source="/SampleControlLibrary;component/SelectMin.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
