@@ -1,3 +1,4 @@
+// Part of Assisticant.Facades: https://blog.machinezoo.com/easy-wpf-control-authoring-with
 using Assisticant.Facades;
 using Assisticant.Fields;
 using System;

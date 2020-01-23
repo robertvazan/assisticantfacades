@@ -1,3 +1,4 @@
+// Part of Assisticant.Facades: https://blog.machinezoo.com/easy-wpf-control-authoring-with
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
