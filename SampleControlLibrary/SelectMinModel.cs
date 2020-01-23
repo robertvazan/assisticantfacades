@@ -1,4 +1,4 @@
-﻿using Assisticant.Collections;
+using Assisticant.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;

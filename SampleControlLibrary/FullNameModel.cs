@@ -1,4 +1,4 @@
-﻿using Assisticant.Facades;
+using Assisticant.Facades;
 using Assisticant.Fields;
 using System;
 using System.Collections.Generic;
