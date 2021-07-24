@@ -4,3 +4,5 @@
 
 This library enables you to use [Assisticant](https://assisticant.net/) within custom WPF controls. It makes it a breeze to implement controls with complex behavior and computed properties.
 
+Documentation: [Easy WPF control authoring with Assisticant.Facades](https://blog.machinezoo.com/easy-wpf-control-authoring-with)
+
